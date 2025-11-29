@@ -1,0 +1,11 @@
+{"level":"info","message":"🚀 Starting LokaAudit Backend Service...","timestamp":"2025-09-05T05:48:02.487Z"}
+{"level":"info","message":"🌐 HTTP Server running on port 4000","timestamp":"2025-09-05T05:48:02.555Z"}
+{"level":"info","message":"📡 WebSocket Server running on same port 4000","timestamp":"2025-09-05T05:48:02.555Z"}
+{"level":"info","message":"📊 Environment: development","timestamp":"2025-09-05T05:48:02.556Z"}
+{"level":"info","message":"✅ LokaAudit Backend Service is ready!","timestamp":"2025-09-05T05:48:02.557Z"}
+{"level":"info","message":"Initiating graceful shutdown...","timestamp":"2025-09-05T05:48:20.878Z"}
+{"level":"info","message":"🚀 Starting LokaAudit Backend Service...","timestamp":"2025-09-05T05:48:29.721Z"}
+{"level":"info","message":"🌐 HTTP Server running on port 4000","timestamp":"2025-09-05T05:48:29.784Z"}
+{"level":"info","message":"📡 WebSocket Server running on same port 4000","timestamp":"2025-09-05T05:48:29.785Z"}
+{"level":"info","message":"📊 Environment: development","timestamp":"2025-09-05T05:48:29.785Z"}
+{"level":"info","message":"✅ LokaAudit Backend Service is ready!","timestamp":"2025-09-05T05:48:29.786Z"}

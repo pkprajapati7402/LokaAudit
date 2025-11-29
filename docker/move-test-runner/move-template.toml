@@ -1,0 +1,10 @@
+[package]
+name = "TestExecution"
+version = "0.0.1"
+
+[dependencies]
+MoveStdlib = { local = "/opt/move/language/move-stdlib" }
+
+[addresses]
+std = "0x1"
+TestAddr = "0x42"

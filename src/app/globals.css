@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  /* Light theme */
+  --background: #ffffff;
+  --foreground: #1f2937; /* Tailwind slate-800 */
+  --muted: #f3f4f6;       /* slate-100 */
+  --accent: #e5e7eb;      /* slate-200 */
+  --border: #e5e7eb;      /* slate-200 */
+  --primary: #2563eb;     /* blue-600 */
+  --secondary: #6b7280;   /* gray-500 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme */
+    --background: #0a0a0a;
+    --foreground: #f9fafb; /* Tailwind slate-50 */
+    --muted: #1f2937;       /* slate-800 */
+    --accent: #374151;      /* slate-700 */
+    --border: #4b5563;      /* slate-600 */
+    --primary: #3b82f6;     /* blue-500 */
+    --secondary: #9ca3af;   /* gray-400 */
+  }
+}
+
+/* Optional: Tailwind-compatible theme context for inline theming (next-themes or similar) */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* React Split Pane Styles */
+.split {
+  display: flex;
+  height: 100%;
+}
+
+.gutter {
+  background-color: #0F172A;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  cursor: col-resize;
+}
+
+.gutter:hover {
+  background-color: #1E293B;
+}
+
+.gutter.gutter-horizontal {
+  cursor: col-resize;
+}
+
+.gutter.gutter-vertical {
+  cursor: row-resize;
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.3) transparent;
+  scroll-behavior: smooth;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}

@@ -1,0 +1,11 @@
+{
+  "projectName": "Test Vulnerable Solana Contract",
+  "network": "solana",
+  "language": "rust",
+  "files": [
+    {
+      "fileName": "lib.rs",
+      "content": "use anchor_lang::prelude::*;\nuse anchor_spl::token::{self, Token, TokenAccount, Transfer};\n\n#[program]\npub mod vulnerable_contract {\n    use super::*;\n\n    pub fn transfer_tokens(ctx: Context<TransferTokens>, amount: u64) -> Result<()> {\n        // VULNERABILITY: Missing signer check\n        let total_amount = amount * 2 + 1000; // No overflow protection\n        \n        token::transfer(ctx.accounts.into(), total_amount)?;\n        Ok(())\n    }\n\n    pub fn withdraw_funds(ctx: Context<WithdrawFunds>, amount: u64) -> Result<()> {\n        let account = &mut ctx.accounts.user_account;\n        // VULNERABILITY: Missing owner check and potential underflow\n        account.balance -= amount;\n        Ok(())\n    }\n}\n\n#[derive(Accounts)]\npub struct TransferTokens<'info> {\n    #[account(mut)]\n    pub from: Account<'info, TokenAccount>,\n    #[account(mut)] // Missing constraints\n    pub to: Account<'info, TokenAccount>,\n    pub authority: Signer<'info>,\n    pub token_program: Program<'info, Token>,\n}\n\n#[derive(Accounts)]\npub struct WithdrawFunds<'info> {\n    #[account(mut)]\n    pub user_account: Account<'info, UserAccount>,\n    pub authority: Signer<'info>,\n}\n\n#[account]\npub struct UserAccount {\n    pub owner: Pubkey,\n    pub balance: u64,\n}"
+    }
+  ]
+}
